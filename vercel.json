@@ -19,13 +19,16 @@
             "dest": "b/main.py"
         },
         {
-            "src": "/(.*)",
-            "dest": "f/$1",
-            "continue": true
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
         },
         {
-            "source": "/(.*)",
-            "destination": "f/index.html"
+            "src": "/favicon.svg",
+            "dest": "/favicon.svg"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/index.html"
         }
     ]
 }
