@@ -1,31 +1,11 @@
 {
-    "version": 2,
-    "builds": [
+    "installCommand": "cd f && npm install --legacy-peer-deps",
+    "buildCommand": "cd f && npm run build",
+    "outputDirectory": "f/build",
+    "rewrites": [
         {
-            "src": "b/main.py",
-            "use": "@vercel/python"
-        },
-        {
-            "src": "f/package.json",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "build"
-            }
-        }
-    ],
-    "routes": [
-        {
-            "src": "/api/(.*)",
-            "dest": "b/main.py"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "f/$1",
-            "continue": true
-        },
-        {
-            "src": "/(.*)",
-            "dest": "f/index.html"
+            "source": "/(.*)",
+            "destination": "/index.html"
         }
     ]
 }
