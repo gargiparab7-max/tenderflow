@@ -72,6 +72,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+# Middleware to strip /api prefix (needed for Vercel serverless deployment)
+@app.middleware("http")
+async def strip_api_prefix(request, call_next):
+    if request.scope["path"].startswith("/api"):
+        request.scope["path"] = request.scope["path"][4:] or "/"
+    return await call_next(request)
+
 # Mount static files for images
 app.mount("/uploads", StaticFiles(directory=UPLOAD_DIR), name="uploads")
 

@@ -2,7 +2,16 @@
     "installCommand": "cd f && npm install --legacy-peer-deps",
     "buildCommand": "cd f && npm run build",
     "outputDirectory": "f/build",
+    "functions": {
+        "api/index.py": {
+            "maxDuration": 30
+        }
+    },
     "rewrites": [
+        {
+            "source": "/api/(.*)",
+            "destination": "/api/index.py"
+        },
         {
             "source": "/(.*)",
             "destination": "/index.html"
