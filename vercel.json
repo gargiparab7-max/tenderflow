@@ -19,11 +19,13 @@
             "dest": "b/main.py"
         },
         {
-            "handle": "filesystem"
+            "src": "/(.*)",
+            "dest": "f/$1",
+            "continue": true
         },
         {
             "src": "/(.*)",
-            "dest": "/index.html"
+            "dest": "f/index.html"
         }
     ]
 }
