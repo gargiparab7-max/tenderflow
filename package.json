@@ -4,10 +4,8 @@
   "description": "TenderFlow - Tender Management System",
   "main": "electron.js",
   "scripts": {
-    "dev": "node server.js",
-    "backend": "cd backend && python -m uvicorn server:app --reload --host 127.0.0.1 --port 8000",
-    "frontend": "cd frontend && npm run start",
-    "start": "electron ."
+    "api": "cd b && python -m uvicorn main:app --reload --host 127.0.0.1 --port 8000",
+    "web": "cd f && npm run start"
   },
   "devDependencies": {
     "electron": "^40.6.1"
