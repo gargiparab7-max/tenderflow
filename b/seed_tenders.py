@@ -189,18 +189,18 @@ async def seed():
         if exists:
             # Update
             await db.tenders.update_one({"title": item["title"]}, {"$set": doc})
-            print(f"🔄 Updated: {item['title']}")
+            print(f"UPDATED: {item['title']}")
         else:
             # Insert
             doc["tender_id"] = str(uuid.uuid4())
             docs_to_insert.append(doc)
-            print(f"✨ Prepared for insert: {item['title']}")
+            print(f"PREPARED: {item['title']}")
 
     if docs_to_insert:
         await db.tenders.insert_many(docs_to_insert)
-        print(f"📊 Inserted {len(docs_to_insert)} new tenders.")
+        print(f"Inserted {len(docs_to_insert)} new tenders.")
     
-    print(f"✅ Seeding completed.")
+    print(f"Seeding completed.")
     client.close()
 
 if __name__ == "__main__":
