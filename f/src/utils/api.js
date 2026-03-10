@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { clearAuthData } from './auth';
 
-// Default to localhost:8000 if not set in environment
-export const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+// Default to /api for production or environment variable if set
+export const API_URL = process.env.REACT_APP_API_URL || '/api';
 
 const apiInstance = axios.create({
   baseURL: API_URL,

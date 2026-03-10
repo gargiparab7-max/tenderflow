@@ -19,12 +19,7 @@
             "dest": "b/main.py"
         },
         {
-            "src": "/static/(.*)",
-            "dest": "/static/$1"
-        },
-        {
-            "src": "/favicon.svg",
-            "dest": "/favicon.svg"
+            "handle": "filesystem"
         },
         {
             "src": "/(.*)",
