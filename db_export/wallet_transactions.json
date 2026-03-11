@@ -1,0 +1,75 @@
+[
+  {
+    "_id": "69a9540123390bf537f33b71",
+    "txn_id": "f571085a-56b2-4917-987c-b0d5ea5d5ab7",
+    "user_id": "b9dddf1b-ffb1-4b18-8e00-aca7261fd8f3",
+    "type": "credit",
+    "amount": 500.0,
+    "description": "Wallet Top-up",
+    "created_at": "2026-03-05T09:59:29.713622"
+  },
+  {
+    "_id": "69a954b4d43e4fa93fc3d388",
+    "txn_id": "bb4dc747-b9f0-4ee9-9076-f6a501ce7bb5",
+    "user_id": "b9dddf1b-ffb1-4b18-8e00-aca7261fd8f3",
+    "type": "credit",
+    "amount": 50000.0,
+    "description": "Wallet Top-up",
+    "created_at": "2026-03-05T10:02:28.327722"
+  },
+  {
+    "_id": "69aa5f742caf4bdba825b5a4",
+    "txn_id": "277e68b6-4432-4ca6-a730-6a86bd6470fe",
+    "user_id": "5516b436-3cf1-44c5-a049-63a286835c5c",
+    "type": "credit",
+    "amount": 500.0,
+    "description": "Wallet Top-up",
+    "created_at": "2026-03-06T05:00:36.187677"
+  },
+  {
+    "_id": "69aa5f7c2caf4bdba825b5a5",
+    "txn_id": "92294f48-7ff5-49f7-841d-26325af7adf8",
+    "user_id": "5516b436-3cf1-44c5-a049-63a286835c5c",
+    "type": "credit",
+    "amount": 25000.0,
+    "description": "Wallet Top-up",
+    "created_at": "2026-03-06T05:00:44.228824"
+  },
+  {
+    "_id": "69aa5f892caf4bdba825b5a6",
+    "txn_id": "4b3c62ac-096c-44be-b385-def70b660677",
+    "user_id": "5516b436-3cf1-44c5-a049-63a286835c5c",
+    "type": "credit",
+    "amount": 25000.0,
+    "description": "Wallet Top-up",
+    "created_at": "2026-03-06T05:00:57.890669"
+  },
+  {
+    "_id": "69aa5f952caf4bdba825b5a7",
+    "txn_id": "b1c599cc-c404-4d88-a606-0e0c779559db",
+    "user_id": "5516b436-3cf1-44c5-a049-63a286835c5c",
+    "type": "debit",
+    "amount": 27000.0,
+    "description": "Payment for order - School Furniture Supply",
+    "created_at": "2026-03-06T05:01:09.382025"
+  },
+  {
+    "_id": "69ad550e78f9b9acb31d65ec",
+    "txn_id": "0028438b-dde6-4cc8-a11d-18db11aaff86",
+    "user_id": "c20b6a2a-f0ea-4b64-8876-f5634f4a1acc",
+    "type": "debit",
+    "amount": 77760.0,
+    "description": "Payment for order - Dust Mask Tender",
+    "created_at": "2026-03-08T10:53:02.352686"
+  },
+  {
+    "_id": "69ad5b83b697d55f325673d6",
+    "txn_id": "06f26fb5-ff5b-4972-a413-da86baf2a2dc",
+    "user_id": "c20b6a2a-f0ea-4b64-8876-f5634f4a1acc",
+    "type": "refund",
+    "amount": 77760.0,
+    "description": "Refund for cancelled order - Dust Mask Tender (#TF-20260308-85B500)",
+    "order_id": "85b500ca-2936-41dd-9433-63d03da7e4f8",
+    "created_at": "2026-03-08T11:20:35.950018"
+  }
+]

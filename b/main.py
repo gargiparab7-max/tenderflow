@@ -35,9 +35,14 @@ from fastapi_mail import ConnectionConfig, FastMail, MessageSchema, MessageType
 load_dotenv()
 
 # Create uploads directory if it doesn't exist
-UPLOAD_DIR = "uploads"
-if not os.path.exists(UPLOAD_DIR):
-    os.makedirs(UPLOAD_DIR)
+UPLOAD_DIR = os.getenv("UPLOAD_DIR", "uploads")
+try:
+    if not os.path.exists(UPLOAD_DIR):
+        os.makedirs(UPLOAD_DIR, exist_ok=True)
+except OSError:
+    # On Vercel serverless, fall back to /tmp
+    UPLOAD_DIR = "/tmp/uploads"
+    os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 # ─── Configuration ───────────────────────────────────────────────────────────
 
@@ -80,8 +85,11 @@ async def strip_api_prefix(request, call_next):
         request.scope["path"] = request.scope["path"][4:] or "/"
     return await call_next(request)
 
-# Mount static files for images
-app.mount("/uploads", StaticFiles(directory=UPLOAD_DIR), name="uploads")
+# Mount static files for images (with error handling for serverless)
+try:
+    app.mount("/uploads", StaticFiles(directory=UPLOAD_DIR), name="uploads")
+except Exception:
+    print(f"[WARN] Could not mount /uploads from {UPLOAD_DIR}")
 
 # ─── Database ────────────────────────────────────────────────────────────────
 
@@ -93,7 +101,7 @@ db: Optional[AsyncIOMotorDatabase] = None
 async def startup_db():
     global client, db
     client = AsyncIOMotorClient(MONGO_URI)
-    db_name = MONGO_URI.rsplit("/", 1)[-1] if "/" in MONGO_URI else "tenderflow"
+    db_name = MONGO_URI.rsplit("/", 1)[-1].split("?")[0] if "/" in MONGO_URI else "tenderflow"
     db = client[db_name]
     print(f"[OK] Connected to MongoDB: {db_name}")
 
